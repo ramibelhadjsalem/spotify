@@ -1,38 +1,269 @@
-.App {
-  text-align: center;
+:root {
+  --blue: rgb(26, 57, 87);
+  --white: #FFFFFF;
+  --light-white:#e3f8e198;
+  --grey-light:#646464;
+  --grey:#333333;
+  --green:#1DB954;
+  --black-light:#121212;
+  --black:#191414;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: "Ubuntu", sans-serif;
+  background: var(--background-color);
+  color: var(--text-color);
+  font-weight: var(--font-weight);
+ 
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body.light {
+  --background-color: var(--light-white);
+  --background-color-light:var(--white);
+  --font-weight: 400;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+body.dark {
+  --background-color: var(--grey);
+  --background-color-light:var(--black-light);
+  --text-color: var(--white);
+  --font-weight: 500;
+}
+
+
+
+.sidebar{
+  background-color: var(--background-color-light);
+  width: 250px !important;
+  height: 100vh;
+  padding: 20px;
+  position: fixed;
+}
+ 
+ 
+.right-side{
+  width: calc(100% -250px);
+  margin-left: 250px;
+  padding: 30px;
+}
+.nav-item{
+  user-select: none;
+  text-decoration: none;
+  color: var(--text-color) ;
+  padding: 5px 20px;
+  border-radius: 10px;
+
+}
+.nav-item2{
+  user-select: none;
+  text-decoration: none;
+  color: var(--text-color) ;
+  padding: 5px 10px;
+  border-radius: 10px;
+  
+}
+.nav-item2:hover{
+  color: var(--text-color) ;
+  background-color: #1DB954;
+  opacity: 0.75;
+}
+
+.nav-item i{
+  font-size: 25px;
+}
+.nav-item.active{
+  background-color: #1DB954;
+  opacity: 0.75;
+}
+.nav-item:hover{
+  background-color: #1db95457;
+  opacity: 0.75;
+  color: var(--text-color) ;
+}
+
+.sidebar .library p,.sidebar .playLists p{
+  font-size: 15px;
+  font-weight: 300;
+  color: #C4C4C4;
+  margin-left: 0;
+}
+.sidebar .playLists .add-playlist{
+  all: unset;
+  color: var(--text-color);
+  font-size: 15px;
+  font-size: 200;
+  padding: 5px 20px;
+  border-radius: 10px;
+}
+.sidebar .playLists .add-playlist:hover{
+  background-color: #C4C4C4;
+  opacity: 0.75;
+  cursor: pointer;
+  
+  
+}
+
+.navBar{
+  height: 50px;
+  width: 100%;
+  margin-top: -20px;
+
+}
+.navBar .navigation button{
+  all: unset;
+  padding: 5px;
+  margin: 0 2px;
+  background-color: var(--background-color-light);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.navBar form{
+  background-color: var(--background-color-light);
+  padding: 5px 20px;
+  border-radius: 5px;
+}
+.navBar form button {
+  all: unset;
+  cursor: pointer;
+  margin-right: 10px;
+
+}
+.navBar form  input{
+  all: unset;
+
+}
+.navBar .user-info{
+  padding: 5px 20px;
+  background-color: var(--background-color-light);
+  border-radius: 5px;
+}
+.navBar .user-info img{
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  background-color: var(--light-white);
+  margin-right: 20px;
+}
+.navBar .user-info i{
+  font-size: 20px;
+}
+.navBar .user-info .dropdown{
+  all: unset;
+}
+.navBar .user-info .dropdown-content{
+  position: absolute;
+  right: 30px;
+  top: 60px;
+  background-color: var(--background-color-light);
+  border-radius: 5px;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  
+  z-index: 1;
+}
+.navBar .user-info .dropDownList{
+  list-style: none;
+}
+.navBar .user-info .dropDownList li{
+  margin-top: 10px;
+}
+.navBar .user-info .dropDownList .nav-item3{
+  text-decoration: none;
+  color: var(--text-color);
+}
+.recentlyplayed .container{
+  overflow-x: scroll;
+  scrollbar-color: var(--text-color) var(--background-color-light);
+  scrollbar-width: thin;
+  min-height: 250px;
+ 
+  
+}
+
+
+
+.item_recently_played{
+  border-radius: 10px;
+  margin: 10px 20px;
+  user-select:none;
+}
+.item_recently_played img {
+  height: 200px;
+  width: 200px;
+   border-radius: 10px;
+   user-select: none;
+}
+.item_recently_played .title{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 150px;
+  
+}
+.item_recently_played .artists{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 90%;
+  color: var(--light-white);
+  font-weight: 200;
+  font-size: 15px;
+  line-height: 15px !important;
+}
+.playListItem{
+  border-radius: 10px;
+  margin: 10px 20px;
+  user-select:none;
+  cursor: pointer;
+}
+.playListItem img{
+  height: 150px;
+  width: 150px;
+  border-radius: 10px;
+
+}
+.playListItem .title{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 140px;
+}
+.playListItem .description{
+  overflow: hidden;
+  word-wrap: normal;
+  width: 100%;
+  max-width: 150px;
+  color: var(--light-white);
+  border-bottom: 2px solid var(--background-color-light);
+}
+
+.playlistpage .discription img{
+  height: 300px;
+  width: 300px;
+  border-radius: 10px;
+}
+.playlistpage .discription .details .type{
+  font-size: 15px;
+  font-weight: 100;
+  color: var(--light-white);
+}
+.playlistpage .discription .title{
+  font-size: 40px;
+  font-weight: 200;}
+
+
+.login a{
+  height: 50px;
+  width: 250px;
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  background-color: #1DB954;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+  line-height: 50px;
+  text-decoration: none;
 }
