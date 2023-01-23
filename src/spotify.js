@@ -1,6 +1,7 @@
 export const authEndPoint="https://accounts.spotify.com/authorize"  
 
-const redirectUrl = window.location.href+"login";
+const redirectUrl = window.location.origin+"/login";
+console.log("jjjjjjjjjjjjjj",window.location);
 
 
 
@@ -14,13 +15,9 @@ const scopes = [
     "user-modify-playback-state"
 ]
 
-export const loginUrl=`${authEndPoint}?
-client_id=${clientId}
-&redirect_uri=${redirectUrl}
-&scope=${scopes.join("%20")}
-&response_type=token
-&show_dialog=true    
-`
+export const loginUrl=`${authEndPoint}?client_id=${clientId}&redirect_uri=${redirectUrl}&scope=${scopes.join("%20")}&response_type=token&show_dialog=true`
+
+console.log(loginUrl);
 export const getTokenFromUrl  = ()=>{
     return window.location.hash
         .substring(1)

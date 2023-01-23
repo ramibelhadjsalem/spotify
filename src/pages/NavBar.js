@@ -15,9 +15,9 @@ const NavBar = () => {
   //     setText(e.target.value)
   //     console.log(searchtext);
   //  }
-   const search =()=>{
-   
-   }
+  const search = () => {
+
+  }
   return (
     <div className='navBar d-flex align-items-center justify-content-between'>
       <div className='navigation d-flex '>
@@ -26,26 +26,28 @@ const NavBar = () => {
       </div>
       <form onSubmit={search()}>
         <button type='submit'><i className="bi bi-search"></i></button>
-        <input type="text" onChange={(e)=>{setText(e.target.value);}}/>
+        <input type="text" onChange={(e) => { setText(e.target.value); }} />
       </form>
       <div className='user-info d-flex'>
         {
           isLoggedin && <>
             <img src={user.images[0].url} />
-            <button className='dropdown' onClick={()=>setdrops(!dropbool)}><i className="bi bi-caret-down"></i></button>
-            
-              <div className={dropbool? "d-block dropdown-content" :"d-none dropdown-content"}>
-                <ul className='dropDownList'>
-                  <li><NavLink className="nav-item3" to="/account" >Account</NavLink></li>
-                  <li><NavLink className="nav-item3" to="/profile" >Profile</NavLink></li>
-                  <li><NavLink className="nav-item3" to="/settings" >Settings</NavLink></li>
-                  <li><NavLink className="nav-item3" to="/logout" >Logout</NavLink></li>
-                  <li><DarkMode/></li>
-                </ul>
-              </div>
-            
           </>
         }
+        <button className='dropdown' onClick={() => setdrops(!dropbool)}><i className="bi bi-caret-down"></i></button>
+
+        <div className={dropbool ? "d-block dropdown-content" : "d-none dropdown-content"}>
+          <ul className='dropDownList'>
+            <li><NavLink className="nav-item3" to="/account" >Account</NavLink></li>
+            <li><NavLink className="nav-item3" to="/profile" >Profile</NavLink></li>
+            <li><NavLink className="nav-item3" to="/settings" >Settings</NavLink></li>
+            {isLoggedin && <li><NavLink className="nav-item3" to="/logout" >Logout</NavLink></li>}
+            {!isLoggedin && <li><NavLink className="nav-item3" to="/login" >Login</NavLink></li>}
+            <li><DarkMode /></li>
+          </ul>
+        </div>
+
+
 
       </div>
 
